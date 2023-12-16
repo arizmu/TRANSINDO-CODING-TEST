@@ -9,7 +9,9 @@
 <p>
     password : secret
 </p>
-
+<p>
+    - config .ENV
+</p>
 <p>
     - composer install
 </p>

@@ -15,6 +15,11 @@
                         type="submit">cari data</button>
                 </form>
             </div> --}}
+            <div class="flex gap-2">
+
+            <a class="mb-2 me-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            href="{{ route('pengembalian') }}">Pengembalian Mobil</a>
+            </div>
             <a class="mb-2 me-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 href="{{ route('peminjaman.create') }}">Peminjaman Mobil</a>
 
@@ -43,32 +48,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($data as $item)
+                        @foreach ($data as $item)
                             <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
                                 <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                                     scope="row">
-                                    {{ $item->merek }}
+                                    {{ $item->mobil->merek. " - ".$item->mobil->model }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $item->model }}
+                                    {{ $item->costumer->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $item->plat }}
+                                    {{ \Carbon\Carbon::parse($item->mulai)->format('Y-m-d') }} - {{ \Carbon\Carbon::parse($item->selesai)->format('Y-m-d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $item->tarif }}
+                                    {{ $item->hari }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @if ($item->status == false)
                                         <span
-                                            class="me-2 rounded bg-blue-500 px-2.5 py-0.5 text-sm font-medium text-white dark:bg-blue-900 dark:text-blue-300">Tersedia</span>
+                                            class="me-2 rounded bg-blue-500 px-2.5 py-0.5 text-sm font-medium text-white dark:bg-blue-900 dark:text-blue-300">Dikembalikan</span>
                                     @else
                                         <span
                                             class="me-2 rounded bg-orange-500 px-2.5 py-0.5 text-sm font-medium text-white dark:bg-blue-900 dark:text-blue-300">Disewa</span>
                                     @endif
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>

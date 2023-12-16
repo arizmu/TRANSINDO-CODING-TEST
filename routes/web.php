@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return to_route('login');
 });
 
 Route::get('/dashboard', function () {
@@ -37,6 +37,8 @@ Route::get('peminjaman', [Transaksi::class, 'peminjaman'])->name('peminjaman');
 Route::get('peminjaman/create', [Transaksi::class, 'peminjaman_create'])->name('peminjaman.create');
 Route::get('pemesanan/mobil/{key}', [Transaksi::class, 'mobil'])->name('pemesanan.mobil');
 Route::post('peminjaman/store', [Transaksi::class, 'peminjaman_store'])->name('peminjaman.store');
+Route::get('pengembalian', [Transaksi::class, 'form_pengembalian'])->name('pengembalian');
+Route::post('pengembalian/action', [Transaksi::class, 'pengembalian'])->name('pengembalian.proses');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
